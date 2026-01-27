@@ -1,4 +1,6 @@
-import { Text, View } from "react-native";
+import { Text, View, Pressable } from "react-native";
+import { router } from "expo-router";
+
 
 export default function Index() {
   return (
@@ -10,6 +12,12 @@ export default function Index() {
       }}
     >
       <Text>Welcome!</Text>
+
+        <Pressable
+          onPress={() => router.push("/screening")}
+        >
+          <Text>next</Text>
+        </Pressable>
     </View>
   );
 }
