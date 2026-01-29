@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Pressable } from "react-native";
+import { StyleSheet, Text, View, Pressable, Image } from "react-native";
 import { useRouter } from "expo-router";
 
 export default function Page() {
@@ -6,15 +6,28 @@ export default function Page() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.main}>
-        <Text style={styles.title}>SafeBites!</Text>
-        <Text style={styles.subtitle}>This is the first page of your app.</Text>
+      <View style={styles.top}>
+        <Image
+          source={require("../assets/images/SafeBitesLogo.png")}
+          style={styles.logo}
+          resizeMode="contain"
+        />
+        <Text style={styles.welcome}>Welcome</Text>
+      </View>
+
+      <View style={styles.bottomPanel}>
+        <Pressable
+          style={styles.button}
+          onPress={() => router.push("/Login")}
+        >
+          <Text style={styles.buttonText}>Login</Text>
+        </Pressable>
 
         <Pressable
           style={styles.button}
-          onPress={() => router.push("/Initial_screen")}
+          onPress={() => router.push("/Sign_up")}
         >
-          <Text style={styles.buttonText}>Get Started</Text>
+          <Text style={styles.buttonText}>Create Account</Text>
         </Pressable>
       </View>
     </View>
@@ -24,35 +37,53 @@ export default function Page() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    padding: 24,
+    backgroundColor: "#FFF8F3", 
   },
-  main: {
+
+  top: {
     flex: 1,
-    justifyContent: "center",
-    maxWidth: 960,
-    marginHorizontal: "auto",
     alignItems: "center",
+    justifyContent: "center",
   },
-  title: {
-    fontSize: 64,
-    fontWeight: "bold",
+
+  logo: {
+    width: 180,
+    height: 180,
+    marginBottom: 20,
   },
-  subtitle: {
-    fontSize: 36,
-    color: "#38434D",
-    marginBottom: 24,
+
+  welcome: {
+    fontSize: 39,
+    color: "#6aa792",
+    fontFamily: "BBH-Hegarty-Regular",
   },
-  button: {
-    marginTop: 20,
-    paddingVertical: 12,
+
+  bottomPanel: {
+    flex: 1, // take the other half
+    backgroundColor: "#674f5d",
+    paddingTop: 50,
+    paddingVertical: 40,
     paddingHorizontal: 24,
-    backgroundColor: "#4CAF50",
-    borderRadius: 8,
+    borderTopLeftRadius: 40,
+    borderTopRightRadius: 40,
+    justifyContent: "flex-start",
   },
+
+  button: {
+    marginTop:20,
+    paddingTop: 10,
+    backgroundColor: "#6aa792",
+    paddingVertical: 14,
+    borderRadius: 30,
+    alignItems: "center",
+    marginBottom: 3,
+    width: "70%",
+    alignSelf: "center"
+  },
+
   buttonText: {
-    color: "#fff",
-    fontSize: 18,
-    fontWeight: "600",
+    fontSize: 20,
+    color: "#FFF8F3",
+    fontFamily: "Quicksand-Regular",
   },
 });
