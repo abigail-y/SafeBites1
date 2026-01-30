@@ -11,13 +11,12 @@ export default function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleSignUp = () => {
-    console.log({ name, email, password, confirmPassword });
-    // Add actual sign-up logic here
+    //For Main Dashboard
+  router.push("/screening screens/screening");
   };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      {/* Top content */}
       <View style={styles.top}>
         <Image
           source={require("../assets/images/SafeBitesLogo.png")}
@@ -26,7 +25,6 @@ export default function SignUp() {
         />
       </View>
 
-      {/* Input fields */}
       <View style={styles.form}>
         <Text style={styles.title}>Sign Up</Text>
         <TextInput
@@ -69,7 +67,6 @@ export default function SignUp() {
        
       </View>
 
-      {/* Bottom text */}
       <View style={styles.bottomText}>
         <Text style={styles.extraText}>
           Already have an account?{" \n"}

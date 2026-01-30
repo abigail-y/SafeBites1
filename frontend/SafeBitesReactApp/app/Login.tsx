@@ -5,18 +5,16 @@ import { useState } from "react";
 export default function Login() {
   const router = useRouter();
 
-  // State for input fields
   const [Username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  
 
   const handleLogin = () => {
-    // Add login logic here
-    console.log({ Username, password });
+    router.push("/main_dashboard");
   };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      {/* Top content */}
       <View style={styles.top}>
         <Image
           source={require("../assets/images/SafeBitesLogo.png")}
@@ -25,7 +23,6 @@ export default function Login() {
         />
       </View>
 
-      {/* Input fields */}
       <View style={styles.form}>
         <Text style={styles.title}>Login</Text>
         <TextInput
@@ -45,17 +42,15 @@ export default function Login() {
           secureTextEntry
         />
 
-        {/* Forgot Password link */}
         <Pressable onPress={() => console.log("Forgot password pressed")}>
           <Text style={styles.forgot}>Forgot Password?</Text>
         </Pressable>
 
         <Pressable style={styles.button} onPress={handleLogin}>
-          <Text style={styles.buttonText}>Login</Text>
+            <Text style={styles.buttonText}>Login</Text>
         </Pressable>
       </View>
 
-      {/* Bottom text */}
       <View style={styles.bottomText}>
         <Text style={styles.extraText}>
           Don't have an account?{" \n"}
